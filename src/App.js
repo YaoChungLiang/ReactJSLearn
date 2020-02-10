@@ -10,6 +10,7 @@ function App() {
         <p>
           Hi Everyone, I just build a ReactJS webpage in 30 mins.
           Hi Simon and his wife Haruka.
+          Hi third.
         </p>
         <a
           className="App-link"

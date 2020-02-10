@@ -9,6 +9,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Hi Everyone, I just build a ReactJS webpage in 30 mins.
+          Hi Simon and his wife Haruka.
         </p>
         <a
           className="App-link"

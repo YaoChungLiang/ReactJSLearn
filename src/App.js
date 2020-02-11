@@ -1,28 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useRouteMatch,
+  useParams
+} from "react-router-dom";
 import './App.css';
+import Nav from './Nav';
+import About from './About';
+import Shop from './Shop';
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Hi Everyone, I just build a ReactJS webpage in 30 mins.
-          Hi Simon and his wife Haruka.
-          Hi third.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Nav />
+        <switch>
+          <Route path = "/" exact component = {Home} />
+          <Route path = "/about" component={About}/>
+          <Route path = "/shop" component={Shop}/>
+        </switch>
+      </div>
+    </Router>
   );
 }
 
-export default App;
+const Home  = () =>(
+  <div>
+    <h1>
+      Home Page
+    </h1>
+  </div>
+);

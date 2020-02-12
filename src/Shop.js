@@ -1,34 +1,34 @@
 import React,{useState, useEffect} from 'react';
 import './App.css';
+import {Link} from 'react-router-dom';
 
 function Shop(){
 
     useEffect(() => {
-        fetchItems();
+        FetchItems();
     },[]);  
 
     const [items, setItems] = useState([]);
 
-    const fetchItems = async() =>{
-        const data = await fetch('https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch');
+    const FetchItems = async() =>{
+        const data = await fetch('https://jsonplaceholder.typicode.com/posts');
         
         const items = await data.json();
-        console.log(items.items);
-        setItems(items.items);
+        console.log(items[0]);
+        setItems(items);
     };  
 
 
-
     return(
-        /*
-        <div>
-            {items.map(item=>(
-                <h1>{item.name}</h1>
-            ))}
-        </div>*/
-        <div>
-            Hi Jefferey
-        </div>
+            <div>
+                {
+                    items.map(item=>(
+                        <h1 key={item.id}>
+                            <Link to ={`/shop/${item.title}`}>{item.title}</Link>
+                        </h1>
+                    ))
+                }
+            </div>
         );
 }
 export default Shop;

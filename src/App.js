@@ -11,6 +11,7 @@ import './App.css';
 import Nav from './Nav';
 import About from './About';
 import Shop from './Shop';
+import ItemDetail from './ItemDetail';
 
 export default function App() {
   return (
@@ -20,7 +21,8 @@ export default function App() {
         <switch>
           <Route path = "/" exact component = {Home} />
           <Route path = "/about" component={About}/>
-          <Route path = "/shop" component={Shop}/>
+          <Route path = "/shop" exact component={Shop}/>
+          <Route path = "/shop/:id" component={ItemDetail}/>
         </switch>
       </div>
     </Router>
